@@ -13,7 +13,7 @@ const destroy = async (tray: Tray, presence: Presence) => {
 
 const startApp = async () => {
 	const presence = new Presence();
-	const tray = new Tray(join(process.cwd(), "assets", "studio.png"));
+	const tray = new Tray(join(__dirname, "assets", "studio.png"));
 	tray.setToolTip("discoBlox is loading...");
 	tray.setContextMenu(
 		Menu.buildFromTemplate([

@@ -5,6 +5,7 @@ import { version } from "../package.json";
 import { Notification } from "electron";
 import Logger from "./Logger";
 import Auth from "./Auth";
+import open from "open";
 
 export default class Presence {
 	public robloxId: string | null = null;

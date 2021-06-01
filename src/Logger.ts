@@ -6,7 +6,7 @@ import { join } from "path";
 import moment from "moment";
 
 export default class Logger {
-	public path = join(process.cwd(), `logs-${version.replace(/\./g, "")}.txt`);
+	public path = join(__dirname, "..", `logs-${version.replace(/\./g, "")}.txt`);
 	public _logger = new cLogger(`discoBlox - ${version}`);
 
 	constructor() {}
@@ -15,7 +15,9 @@ export default class Logger {
 		try {
 			await readFile(this.path);
 		} catch (e) {
-			writeFile(this.path, `discoBlox Logs - version ${version}`).catch((e) => process.exit());
+			await writeFile(this.path, `discoBlox Logs - version ${version}`).catch((e) =>
+				process.exit()
+			);
 		}
 	}
 

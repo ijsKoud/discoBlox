@@ -1,7 +1,7 @@
 {
 	"name": "discoblox",
 	"version": "1.0.0",
-	"main": "dist/index.js",
+	"main": "index.js",
 	"license": "MIT",
 	"author": {
 		"name": "DaanGamesDG",
@@ -15,12 +15,19 @@
 		"axios": "^0.21.1",
 		"discord-rpc": "^3.2.0",
 		"moment": "^2.29.1",
+		"open": "^8.2.0",
 		"rage-edit": "^1.2.0"
 	},
 	"scripts": {
 		"dev": "nodemon --exec ts-node dev.ts",
-		"build": "tsc",
-		"start": "npm run build && electron ."
+		"build:dev": "tsc",
+		"start": "npm run build:dev && electron .",
+		"build:win": "electron-packager ./build --overwrite discoBlox --platform=win32 --arch=x64 --no-prune --icon=./assets/studio.png"
+	},
+	"pkg": {
+		"assets": [
+			"assets/*"
+		]
 	},
 	"devDependencies": {
 		"electron": "^13.0.1",

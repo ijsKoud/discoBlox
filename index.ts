@@ -25,8 +25,8 @@ const updater = (presence: Presence, tray: Tray) => {
 	autoUpdater.on("update-available", () => {
 		presence.logger.info(true, "Autoupdater - New update available.");
 		new Notification({
-			title: "roPresence Update Available",
-			body: "A new roPresence update is available. Starting the download.",
+			title: "ℹ discoBlox Update Available",
+			body: "A new discoBlox update is available,\nwe are downloading the new update in the background.\nNote: This may take a few minutes.",
 		}).show();
 	});
 

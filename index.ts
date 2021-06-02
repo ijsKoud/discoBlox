@@ -43,7 +43,9 @@ const updater = (presence: Presence, tray: Tray) => {
 		setTimeout(() => autoUpdater.quitAndInstall());
 	});
 
-	autoUpdater.setFeedURL({ url: "http://localhost:3000/version" });
+	autoUpdater.setFeedURL({
+		url: `https://discoblox.daangamesdg.tk/update/${process.platform}/${version}`,
+	});
 	autoUpdater.checkForUpdates();
 
 	setInterval(() => autoUpdater.checkForUpdates(), 10 * 60 * 1000);

@@ -182,6 +182,8 @@ export default class Presence {
 	}
 
 	public async start() {
+		let interval: NodeJS.Timeout | null = null;
+
 		try {
 			this.logger.info(true, "Attempting to connect to Discord via IPC.");
 			this.client.login({ clientId: this.clientId }).catch((e) => {
@@ -189,6 +191,8 @@ export default class Presence {
 			});
 
 			this.client.on("ready", async () => {
+				if (interval) clearInterval(interval);
+
 				this.logger.info(
 					true,
 					`Successfully connected to Discord via IPC - user ${this.client.user.username}#${this.client.user.discriminator} (${this.client.user.id})`
@@ -213,9 +217,10 @@ export default class Presence {
 				"We were unable to connect to Discord. We will let you know when we successfully connected to Discord again!"
 			);
 
-			setInterval(() => {
-				if (!this.loggedIn) this.client.login({ clientId: this.clientId });
-			}, 3e4);
+			interval = setInterval(
+				() => this.client.login({ clientId: this.clientId }).catch((e) => null),
+				3e4
+			);
 		}
 	}
 }

@@ -98,7 +98,9 @@ const handleSquirrelEvent = (app: App): boolean => {
 };
 
 const startApp = async () => {
-	if (handleSquirrelEvent(app)) return;
+	if (handleSquirrelEvent(app)) return process.exit();
+	if (require("electron-squirrel-startup")) return process.exit();
+
 	const presence = new Presence();
 	const tray = new Tray(join(__dirname, "assets", "logo.png"));
 

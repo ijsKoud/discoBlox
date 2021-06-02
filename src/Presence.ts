@@ -63,7 +63,7 @@ export default class Presence {
 				data: { userIds: [this.robloxId] },
 			});
 
-			this.logger.info(
+			await this.logger.info(
 				true,
 				`Successfully retrieved ROBLOX presence for ${this.robloxUsername} (${this.robloxId})`
 			);

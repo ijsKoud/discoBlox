@@ -5,3 +5,4 @@ dist/
 logs-*.txt
 discoBlox-*/
 build/
+build.js

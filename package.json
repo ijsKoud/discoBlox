@@ -2,6 +2,7 @@
 	"name": "discoblox",
 	"version": "1.0.0",
 	"main": "index.js",
+	"description": "Discord RPC for ROBLOX using the Presence API.",
 	"license": "MIT",
 	"author": {
 		"name": "DaanGamesDG",
@@ -14,6 +15,8 @@
 		"@types/node": "^15.6.1",
 		"axios": "^0.21.1",
 		"discord-rpc": "^3.2.0",
+		"electron-squirrel-startup": "^1.0.0",
+		"electron-winstaller": "^5.0.0",
 		"moment": "^2.29.1",
 		"open": "^8.2.0",
 		"rage-edit": "^1.2.0"
@@ -21,8 +24,9 @@
 	"scripts": {
 		"dev": "nodemon --exec ts-node dev.ts",
 		"build:dev": "tsc",
-		"start": "npm run build:dev && electron .",
-		"build:win": "electron-packager ./dist --overwrite discoBlox --platform=win32 --arch=x64 --no-prune --icon=./assets/logo.ico"
+		"start": "npm run build:dev && electron dist/index.js",
+		"build:win": "electron-packager ./dist --overwrite discoBlox --platform=win32 --arch=x64 --no-prune --icon=./assets/logo.ico",
+		"grunt": "grunt create-windows-installer"
 	},
 	"pkg": {
 		"assets": [

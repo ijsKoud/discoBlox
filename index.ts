@@ -40,7 +40,7 @@ const updater = (presence: Presence, tray: Tray) => {
 			body: `Version ${name} of discoBlox has been downloaded, we will restart the Presence in 5 seconds.`,
 		}).show();
 
-		setTimeout(() => autoUpdater.quitAndInstall());
+		setTimeout(() => autoUpdater.quitAndInstall(), 5e3);
 	});
 
 	autoUpdater.setFeedURL({

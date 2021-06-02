@@ -132,6 +132,7 @@ const startApp = async () => {
 				{
 					label: `discoBlox - v${version}`,
 					type: "normal",
+					click: () => open("https://discoblox.daangamesdg.tk/"),
 				},
 				{
 					label: "item1",
@@ -140,10 +141,12 @@ const startApp = async () => {
 				{
 					label: `Roblox: ${presence.robloxUsername}`,
 					type: "normal",
+					click: () => open(`https://roblox.com/users/${presence.robloxId}/profile`),
 				},
 				{
 					label: `Discord: ${presence.client.user.username}#${presence.client.user.discriminator}`,
 					type: "normal",
+					click: () => open(`https://discord.com/users/${presence.client.user.id}`),
 				},
 				{
 					label: "item1",

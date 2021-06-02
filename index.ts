@@ -15,7 +15,7 @@ const destroy = async (tray: Tray, presence: Presence) => {
 
 const updater = (presence: Presence, tray: Tray) => {
 	autoUpdater.on("error", (e) =>
-		presence.logger.error(false, `Auto Updater error: ${e.stack || e.message}`)
+		presence.logger.error(false, `Auto Updater error: ${e.stack || e.message || e.name}`)
 	);
 
 	autoUpdater.on("checking-for-update", () =>

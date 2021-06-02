@@ -22,7 +22,7 @@
 		"dev": "nodemon --exec ts-node dev.ts",
 		"build:dev": "tsc",
 		"start": "npm run build:dev && electron .",
-		"build:win": "electron-packager ./build --overwrite discoBlox --platform=win32 --arch=x64 --no-prune --icon=./assets/studio.png"
+		"build:win": "electron-packager ./dist --overwrite discoBlox --platform=win32 --arch=x64 --no-prune --icon=./assets/logo.ico"
 	},
 	"pkg": {
 		"assets": [

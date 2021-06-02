@@ -2,6 +2,7 @@ import { app, Menu, Tray } from "electron";
 import { version } from "./package.json";
 import Presence from "./src/Presence";
 import { join } from "path";
+import open from "open";
 
 const destroy = async (tray: Tray, presence: Presence) => {
 	await presence.logger.info(false, "Quitting discoBlox... This may take a few seconds.");
@@ -13,12 +14,15 @@ const destroy = async (tray: Tray, presence: Presence) => {
 
 const startApp = async () => {
 	const presence = new Presence();
-	const tray = new Tray(join(__dirname, "assets", "studio.png"));
+	const tray = new Tray(join(__dirname, "assets", "logo.png"));
+
+	if (process.platform === "win32") app.setAppUserModelId(`discoBlox - v${version}`);
+
 	tray.setToolTip("discoBlox is loading...");
 	tray.setContextMenu(
 		Menu.buildFromTemplate([
 			{
-				label: `discoBlox - ${version}`,
+				label: `discoBlox - v${version}`,
 				type: "normal",
 			},
 			{
@@ -56,6 +60,11 @@ const startApp = async () => {
 				{
 					label: "item1",
 					type: "separator",
+				},
+				{
+					label: "Open Logs",
+					type: "normal",
+					click: () => open(presence.logger.path),
 				},
 				{
 					label: "Exit",

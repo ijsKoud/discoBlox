@@ -18,7 +18,7 @@
 		"electron-squirrel-startup": "^1.0.0",
 		"electron-winstaller": "^5.0.0",
 		"moment": "^2.29.1",
-		"open": "^8.2.1",
+		"open": "^8.3.0",
 		"rage-edit": "^1.2.0"
 	},
 	"scripts": {
